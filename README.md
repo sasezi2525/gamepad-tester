@@ -1,11 +1,7 @@
-# Gamepad Tester v1.4
+Gamepad Tester v1.5
 
-GitHub Pages用ファイルです。ZIPを解凍して、5ファイルをリポジトリ直下にアップロードしてください。
+GitHub Pages: リポジトリ直下に5ファイルをアップロードしてください。
 
-- index.html
-- sw.js
-- manifest.webmanifest
-- icon.svg
-- README.md
+設定画面の「自動判定をずっとオフにする」を有効にした場合のみ、手動選択を再訪時にも維持します。
 
-画面上部に v1.4 を表示。オフラインキャッシュもv1.4へ更新。
+入力の細かさは0〜10換算で観測した異なる値の数で、ハードウェア分解能の保証ではありません。
