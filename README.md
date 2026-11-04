@@ -1,8 +1,5 @@
-# Gamepad Tester v1.6
+Gamepad Tester v1.7
 
-GitHub Pagesのリポジトリ直下に5ファイルをアップロードしてください。
+GitHub Pages: upload the files in this folder to repository root.
 
-- Xbox / Switch / PlayStation系の簡略シルエット、4色ボタン、数値表示、オフラインPWA
-- PS4 / PS5のタッチパッド押し込みは、ブラウザがボタン17として公開する場合のみ検出可能です。
-- **標準Gamepad APIはタッチパッドの指座標を提供しません。** 軌跡キャンバスはスマホ画面上のタッチ操作のデモです。コントローラーのタッチ軌跡ではありません。
-- ブラウザによってはボタン17が別の機能だったり、存在しなかったりします。
+Input resolution measurement: unique integer-percent readings in 0..100 (maximum 101 unique readings), displayed as observed value count and transitions. Repeated readings never increase the count. Reset measurement when needed. The measurement does not establish hardware bit depth.
