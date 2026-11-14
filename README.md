@@ -1,5 +1,3 @@
-# Gamepad Tester v1.9
+# Gamepad Tester v1.10
 
-USB v0.8.2 / BT v0.5.3の識別信号に対応。詳細は「今回の更新_最初に読む.txt」とWEB_PROTOCOL.mdを参照してください。
-
-index.html・train.js・train-ui.js・sw.js・manifest.webmanifest・icon.svgの6ファイルをGitHub Pagesへ配置してください。旧v1.8は新識別方式に対応していません。
+「今回の更新_最初に読む.txt」を参照してください。ネジコン/ゼロテック・タタコン・大型アナログジョイスティックの専用表示と、変換器起動時の種類名による自動選択に対応します。判定できない場合は手動選択できます。
