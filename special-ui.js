@@ -32,3 +32,10 @@ function specialFrame(){const p=selected();if(Object.hasOwn(specialNames,activeL
  for(const el of $('special-buttons').children){const b=p?.buttons[Number(el.dataset.specialButton)];el.classList.toggle('on',!!b&&(b.pressed||b.value>.5))}
  }requestAnimationFrame(specialFrame)}
 updateLayout(selected());requestAnimationFrame(specialFrame);
+
+// BLE names may be retained by the host after a physical controller swap.
+const beforeBtNameNotice=updateLayout;
+updateLayout=function(p){beforeBtNameNotice(p);if(autoLayout&&p&&/^PS2 (?:neGcon|Joystick|Tatacon|Wireless Controller)(?: Extended Gamepad)?$/i.test(p.id)&&activeLayout!=='train'){
+ $('layout-info').textContent='BTの接続名は端末に残るため、機種判定には使用しません。接続したコントローラーの表示を手動で選んでください。';
+}};
+updateLayout(selected());
