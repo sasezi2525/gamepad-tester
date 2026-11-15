@@ -14,7 +14,7 @@ function buildSpecial(kind){if(specialBuilt===kind)return;specialBuilt=kind;$('s
   const item=document.createElement('div');item.className='mini';
   const title=document.createElement('strong');title.textContent=i<4?specialAxisLabels[kind][i]:i===4?'LT出力':'RT出力';
   const value=document.createElement('span');value.className='num';value.id='special-axis-'+i;item.append(title,value);
-  if(kind==='negcon'){
+  if(kind==='negcon'||kind==='flight'){
    const meter=document.createElement('div');meter.className='meter special-meter';meter.id='special-meter-'+i;
    meter.setAttribute('role','meter');meter.setAttribute('aria-label',title.textContent);meter.setAttribute('aria-valuemin',i<4?'-1':'0');meter.setAttribute('aria-valuemax','1');
    const bar=document.createElement('div');bar.className='fill';bar.id='special-fill-'+i;meter.append(bar);
@@ -36,7 +36,7 @@ function specialFrame(){const p=selected();if(Object.hasOwn(specialNames,activeL
  if(activeLayout!=='tatacon')for(let i=0;i<6;i++){
   const value=i<4?p?.axes[i]:p?.buttons[i+2]?.value;
   $('special-axis-'+i).textContent=Number.isFinite(value)?i<4?(value>=0?'+':'')+value.toFixed(4):Math.round(value*100)+'%':'—';
-  if(activeLayout==='negcon'){
+  if(activeLayout==='negcon'||activeLayout==='flight'){
    const present=Number.isFinite(value),v=present?Math.max(i<4?-1:0,Math.min(1,value)):0;
    const bar=$('special-fill-'+i),meter=$('special-meter-'+i);
    bar.style.width=(i<4?Math.abs(v)*50:v*100)+'%';bar.style.left=(i<4?(v<0?50+v*50:50):0)+'%';
