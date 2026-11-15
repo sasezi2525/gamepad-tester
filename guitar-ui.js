@@ -1,6 +1,6 @@
  'use strict';
 let guitarView='front';try{if(localStorage.getItem('guitar-view')==='top')guitarView='top'}catch{}
-function setGuitarView(view){guitarView=view;for(const v of ['front','top']){$('guitar-'+v).hidden=v!==view;$('guitar-view-'+v).setAttribute('aria-pressed',String(v===view))}try{localStorage.setItem('guitar-view',view)}catch{}}
+function setGuitarView(view){guitarView=view;for(const v of ['front','top']){const figure=$('guitar-'+v);figure.hidden=v!==view;figure.style.display=v===view?'block':'none';if(v===view)figure.removeAttribute('hidden');else figure.setAttribute('hidden','');figure.setAttribute('aria-hidden',String(v!==view));$('guitar-view-'+v).setAttribute('aria-pressed',String(v===view))}try{localStorage.setItem('guitar-view',view)}catch{}}
 for(const v of ['front','top'])$('guitar-view-'+v).onclick=()=>setGuitarView(v);
 const beforeGuitarLayout=updateLayout;
 updateLayout=function(p){beforeGuitarLayout(p);$('guitar-display').hidden=activeLayout!=='guitar';if(activeLayout==='guitar')setGuitarView(guitarView)};
