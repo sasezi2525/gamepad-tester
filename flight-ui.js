@@ -1,5 +1,5 @@
 'use strict';
-const flightButtonMap=[[0, 4], [1, 5], [2, 0], [3, 1], [4, 6], [5, 7], [6, 2], [7, 3], [8, 14], [9, 15], [10, 12], [11, 13], [12, 8], [13, 9], [14, 4], [15, 6], [16, 2], [17, 0], [18, 3], [19, 1], [20, 5], [21, 7]];
+const flightButtonMap=[[0, 6], [1, 7], [2, 2], [3, 1], [4, 4], [5, 5], [6, 0], [7, 3], [8, 14], [9, 15], [10, 12], [11, 13], [12, 8], [13, 9], [14, 6], [15, 4], [16, 0], [17, 2], [18, 3], [19, 1], [20, 7], [21, 5]];
 const beforeFlightLayout=updateLayout;
 updateLayout=function(p){beforeFlightLayout(p);$('flight-drawing').hidden=activeLayout!=='flight'};
 function flightFrame(){if(activeLayout==='flight'){const p=selected();for(const [i,b] of flightButtonMap){const pressed=!!p&&(p.buttons[b]?.value||0)>.5;const node=$('flight-button-'+i);node.classList.toggle('on',pressed);node.setAttribute('aria-label','B'+b+(pressed?' ON':' OFF'))}
