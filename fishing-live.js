@@ -6,3 +6,10 @@ function decodeFishingLive(p,manual=false){if(!p||p.mapping!=='standard'||(p.but
  const bytes=[255,229,90,(~pressed)&255,((~pressed)>>8)&255,128,128,byte(p.axes[0],146),byte(p.axes[1],128),byte(p.axes[2],128),byte(p.axes[3],128),Math.round((p.buttons[6]?.value||0)*255),Math.round((p.buttons[7]?.value||0)*255)];return {id:229,header:90,bytes,source:'live'};
 }
 if(typeof module!=='undefined')module.exports=decodeFishingLive;
+
+// Tester presentation only: hide transport channels and restore physical names.
+function fishingDisplayPad(p){const data=decodeFishingLive(p,typeof activeLayout!=='undefined'&&activeLayout==='fishing');if(!data)return p;
+const buttons=p.buttons.map(b=>({value:b.value,pressed:b.pressed,touched:b.touched}));
+for(const [target,source] of [[6,12],[7,15]]){const down=(p.buttons[source]?.value||0)>.5;buttons[target]={value:down?1:0,pressed:down,touched:down}}
+for(const i of [11,12,13,14,15])buttons[i]={value:0,pressed:false,touched:false};
+return {id:p.id,index:p.index,mapping:p.mapping,timestamp:p.timestamp,connected:p.connected,buttons,axes:[p.axes[0],p.axes[1],0,0],vibrationActuator:p.vibrationActuator,hapticActuators:p.hapticActuators};}
